@@ -1,7 +1,7 @@
 //module
 // const multipleTwoTimes = require("./math");
 //default import
-const { plus, minus, multiple, divide } = require("./math");
+const { plus, minus, multiple, divide, power, squareRoot } = require("./math");
 //named import
 
 console.log("math");
@@ -13,3 +13,5 @@ console.log("Plus", plus(num1));
 console.log("Minus", minus(num1));
 console.log("Multiple", multiple(num1));
 console.log("Divide", divide(num1));
+console.log("Power", power(num1));
+console.log("SquareRoot", squareRoot(num1));
