@@ -34,6 +34,8 @@ fs.readFile("test.txt", { encoding: "utf-8" }, (err, data) => {
   }
   console.log("Count Numbers:", data.length);
   const parsedData = data.split(" ");
+  obj = {};
+
   console.log("Count words Numbers:", parsedData.length);
   //   console.log("parsedNumbers:", parsedData);
   const count = parsedData.reduce((prev, cur) => prev + cur.length, 0);
@@ -41,10 +43,15 @@ fs.readFile("test.txt", { encoding: "utf-8" }, (err, data) => {
   const arr = [1, 2, 4, 5, 6];
   // reduce ehleed UMNUH UTGAA ugdug daraa ni ELEMENT- odoo bga
   const sum = arr.reduce((prev, cur) => prev + cur, 0);
+  for (let i = 0; i < parsedData.length; i++) {
+    if (obj[parsedData[i]] === undefined) {
+      obj[parsedData[i]] = 1;
+    } else {
+      obj[parsedData[i]]++;
+    }
+  }
+  console.log("utga", obj);
   console.log("reduce:", sum);
 });
 
 console.log("end of read file");
-
-
-//gert: 
