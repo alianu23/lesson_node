@@ -50,7 +50,7 @@ fs.readFile("test.txt", { encoding: "utf-8" }, (err, data) => {
       obj[parsedData[i]]++;
     }
   }
-  console.log("utga", obj);
+  // console.log("utga", obj);
   console.log("reduce:", sum);
 });
 
