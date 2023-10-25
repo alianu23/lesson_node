@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "5c09aa16-de65-49c1-bc06-16ba91217d07",
+      "name": "Naraa",
+      "status": "online",
+      "email": "naraa@email.com",
+      "department": "technology"
+    },
+    {
+      "id": "78fba828-241a-461d-b0a5-804a189ffe05",
+      "name": "Saraa",
+      "status": "online",
+      "email": "naraa@email.com",
+      "department": "Human resourse"
+    }
+  ]
+}
