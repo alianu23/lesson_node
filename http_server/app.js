@@ -1,82 +1,70 @@
-const express = require("express");
-const fs = require("fs");
-const port = 8008;
-const app = express();
+const { v4: uuidv4 } = require("uuid");
+const { readFile, writeFile } = require("../utils/fileHandler");
 
-app.use(express.json()); // middleware
+const getAllUser = (req, res) => {
+  console.log("Hello All users method");
+  const users = readFile("users.json");
+  res.status(200).json({ message: "success", users });
+};
 
-const users = [
-  { id: 1, username: "Naraa", password: "password" },
-  { id: 2, username: "Saraa", password: "password2" },
-  { id: 3, username: "Baraa", password: "password3" },
-  { id: 4, username: "Maraa", password: "password4" },
-];
-
-app.get("/", (req, res) => {
-  const content = fs.readFileSync("test.txt", { encoding: "utf-8" });
-  const count = content.split("").length;
-  res.send("Hello FROM Express Server - " + count);
-});
-
-app.get("/about", (req, res) => {
-  res.status(200).json({
-    name: "Naraa",
-    age: 29,
-    isVeried: true,
-    score: [100, 102],
-    address: {
-      no: 100,
-    },
-  });
-});
-
-app.get("/wordCount", (req, res) => {
-  const content = fs.readFileSync("test.txt", { encoding: "utf-8" });
-  const count = content.split("").length;
-
-  res.send("Count - " + count);
-});
-
-app.get("/user/:userId", (req, res) => {
+const getUserById = (req, res) => {
+  console.log("get an user id");
   const { userId } = req.params;
-  console.log("UI", userId);
-  const findUser = users.filter((user) => user.id === Number(userId));
-  console.log("FU", findUser);
+  const users = readFile("users.json");
+  const findUser = users.filter((user) => user.id === userId);
   if (findUser.length === 0) {
-    res.status(404).json({ message: "Not Found" });
+    res.status(400).json({ message: `There is no ${userId} user` });
   } else {
-    res.status(200).json({ message: "User is found", user: findUser[0] });
+    res
+      .status(200)
+      .json({ message: `Found this  ${userId} user`, user: findUser[0] });
   }
-});
+};
 
-app.get("/users", (req, res) => {
-  const { users } = JSON.parse(fs.readFileSync("users.json", "utf-8"));
-  res.status(200).json({ message: "All user", users });
-});
-
-app.post("/users", (req, res) => {
-  console.log("BODY", req.body);
-  const body = req.body;
-  const newUser = {
-    id: users.length + 1,
-    username: body.username,
-    password: body.password,
-  };
+const createUser = (req, res) => {
+  console.log("Hello Create new user method", req.body);
+  const newUser = { id: uuidv4(), ...req.body };
+  const users = readFile("users.json");
+  console.log("ALL USER", users);
   users.push(newUser);
-  res.status(200).json({ message: "All user", users });
-});
+  writeFile("users.json", users);
+  res.status(201).json({ message: "success" });
+};
 
-app.put("/users", (req, res) => {
-  const { users } = JSON.parse(fs.readFileSync("users.json", "utf-8"));
-  const body = req.body;
-  const updateUsers = users.map((user) => {
-    user.id === users.id;
-    res.status(200).json({ message: "All user", users });
-  });
-});
+const updateUserById = (req, res) => {
+  console.log("Hello update user by id method");
+  const { userId } = req.params;
+  const users = readFile("users.json");
+  let index = users.findIndex((user) => user.id === userId);
+  if (index === -1) {
+    res.status(400).json({ message: `There is no ${userId} user` });
+  } else {
+    users[index] = { ...users[index], ...req.body };
+    writeFile("users.json", users);
+    res
+      .status(200)
+      .json({ message: `Updated this ${userId} user`, user: users[index] });
+  }
+};
 
-// app.put("/users",(req, res) =>{
-//   const { users } = JSON.parse(fs.readFileSync('users.json', 'utf-8'));
-// } )
+const deleteUserById = (req, res) => {
+  console.log("Hello delete user by id method");
+  const { userId } = req.params;
+  const users = readFile("users.json");
+  const index = users.findIndex((el) => el.id === userId);
+  if (index < 0) {
+    res.status(400).json({ massege: `${userId} is not found` });
+  } else {
+    users.splice(index, 1);
+    writeFile("users.json", users);
+    res.status(200).json({ massege: `${userId} is deleted` });
+  }
+};
 
-app.listen(port, () => console.log("Server is listening at 8008 port"));
+module.exports = {
+  createUser,
+  getAllUser,
+  getUserById,
+  updateUserById,
+  deleteUserById,
+};

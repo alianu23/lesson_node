@@ -1,21 +1,22 @@
 const fs = require("fs");
 const path = require("path");
 
-const p = path.join(__dirname, "../data/");
+const pa = path.join(__dirname, "../data/");
+console.log("PATH", path);
 
-//relative path | absolute path
 const readFile = (fileName) => {
-  console.log("PATH", path.join(__dirname, "../data"));
   const { data } = JSON.parse(
-    fs.readFileSync(p + fileName, {
+    fs.readFileSync(pa + fileName, {
       encoding: "utf-8",
     })
   );
+  console.log("DATA", data);
+  console.log("fileName", fileName);
   return data;
 };
 
 const writeFile = (fileName, data) => {
-  fs.writeFileSync(p + fileName, JSON.stringify({ data }), {
+  fs.writeFileSync(pa + fileName, JSON.stringify({ data }), {
     encoding: "utf-8",
   });
 };
