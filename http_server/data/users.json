@@ -26,39 +26,21 @@
       "department": "technology"
     },
     {
-      "id": "dc3ee427-0e8d-4366-9cab-adff28a7f6f8",
-      "avatarUrl": "/images/avatar3.jpg",
-      "firstName": "Urnaa",
-      "lastName": "Amgalan",
-      "email": "admin@gmail.com",
-      "birthDate": "2023-11-03",
-      "department": "technology"
+      "id": "0b4e91ca-48ec-444c-9f5c-1d615007a4ce",
+      "avatarUrl": "/images/avatar2.jpg",
+      "firstName": "asas",
+      "lastName": "asas",
+      "email": "asas",
+      "birthDate": "2023-11-02",
+      "department": "human resource"
     },
     {
-      "id": "53fe4d9b-c7a1-49d2-a24d-07f8b7c5d851",
-      "avatarUrl": "/images/avatar1.jpg",
-      "firstName": "Erdene",
-      "lastName": "Bataa",
-      "email": "bat@gmail.com",
+      "id": "24190f7e-e4fe-4afd-9ffd-169ab1c2da14",
+      "avatarUrl": "/images/avatar2.jpg",
+      "firstName": "Khulan",
+      "lastName": "Oyunbat",
+      "email": "khula@email.com",
       "birthDate": "2023-11-01",
-      "department": "marketing"
-    },
-    {
-      "id": "de337ad5-1d15-4369-8f0d-e82b58814779",
-      "avatarUrl": "/images/avatar2.jpg",
-      "firstName": "Sarantuya",
-      "lastName": "Batbaatar",
-      "email": "bataa@gmail.com",
-      "birthDate": "2023-11-09",
-      "department": "finance"
-    },
-    {
-      "id": "bfd1d39c-24de-4966-a03c-09b020f1327f",
-      "avatarUrl": "/images/avatar2.jpg",
-      "firstName": "Kuka",
-      "lastName": "O",
-      "email": "kuka@email.com",
-      "birthDate": "2002-10-23",
       "department": "finance"
     }
   ]

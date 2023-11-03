@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+import Form from "../Form";
 
 const TRow = ({ user }) => {
   const getDepartment = (department) => {
@@ -33,6 +35,28 @@ const TRow = ({ user }) => {
       }
     }
   };
+
+  const [open, setOpen] = useState(false);
+  const [refresh, setRefresh] = useState(false);
+  const [userList, setUserList] = useState([]);
+
+  const closeForm = () => {
+    console.log("Formee");
+    setOpen(false);
+    setRefresh(!refresh);
+  };
+
+  const getAllUser = async () => {
+    const { users } = await fetch("http://localhost:8008/api/users").then(
+      (res) => res.json()
+    );
+    setUserList(users);
+  };
+
+  useEffect(() => {
+    getAllUser();
+  }, [refresh]);
+
   return (
     <tr className="hover:bg-slate-100">
       <td>
@@ -58,7 +82,15 @@ const TRow = ({ user }) => {
       </td>
       <td>{getDepartment(user.department)}</td>
       <td>
-        <button className=" btn btn-warning  mx-2">засах</button>
+        <button
+          onClick={() => {
+            setOpen(true);
+          }}
+          className=" btn btn-warning  mx-2"
+        >
+          засах
+        </button>
+        <Form open={open} closeForm={closeForm} />
         <button className="  btn btn-error ">устгах</button>
       </td>
     </tr>
