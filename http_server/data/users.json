@@ -1,39 +1,65 @@
 {
   "data": [
     {
-      "id": "5c09aa16-de65-49c1-bc06-16ba91217d07",
-      "name": "Naraa",
-      "status": "online",
-      "email": "naraa@email.com",
+      "id": "0b19e523-b76c-4cdb-936a-d4f649feb048",
+      "avatarUrl": "/images/avatar2.jpg",
+      "firstName": "Анударь",
+      "lastName": "Оюунбат",
+      "email": "anybat23@gmail.com",
+      "birthDate": "2023-11-02",
       "department": "technology"
     },
     {
-      "id": "90a8c4b6-b50f-48cc-a600-1f1c68b4afee",
-      "name": "Davaa",
-      "status": "online",
-      "email": "davaa@email.com",
-      "department": "Marketing"
+      "avatarUrl": "/images/avatar.png",
+      "firstName": "Naraa",
+      "lastName": "Saraa",
+      "email": "email@gmail.com",
+      "birthDate": "2020-10-10",
+      "department": "human resource"
     },
     {
-      "id": "8ba10cff-75dd-4232-afe2-d7f48f2a8810",
-      "name": "Lhamaa",
-      "status": "online",
-      "email": "Lhamaa@email.com",
-      "department": "Marketing"
+      "avatarUrl": "/images/avatar1.jpg",
+      "firstName": "Saraa",
+      "lastName": "Bataa",
+      "email": "email@gmail.com",
+      "birthDate": "2020-10-10",
+      "department": "technology"
     },
     {
-      "id": "8ae7421d-ffa1-4445-b6f1S-d85efded303d",
-      "name": "Navchaa",
-      "status": "online",
-      "email": "navchaa@email.com",
-      "department": "Marketing"
+      "id": "dc3ee427-0e8d-4366-9cab-adff28a7f6f8",
+      "avatarUrl": "/images/avatar3.jpg",
+      "firstName": "Urnaa",
+      "lastName": "Amgalan",
+      "email": "admin@gmail.com",
+      "birthDate": "2023-11-03",
+      "department": "technology"
     },
     {
-      "id": "52b17f5e-e1f4-46b2-acfd-18a31de1e8b5",
-      "name": "Sainaa",
-      "status": "online",
-      "email": "maral@email.com",
-      "department": "Marketing"
+      "id": "53fe4d9b-c7a1-49d2-a24d-07f8b7c5d851",
+      "avatarUrl": "/images/avatar1.jpg",
+      "firstName": "Erdene",
+      "lastName": "Bataa",
+      "email": "bat@gmail.com",
+      "birthDate": "2023-11-01",
+      "department": "marketing"
+    },
+    {
+      "id": "de337ad5-1d15-4369-8f0d-e82b58814779",
+      "avatarUrl": "/images/avatar2.jpg",
+      "firstName": "Sarantuya",
+      "lastName": "Batbaatar",
+      "email": "bataa@gmail.com",
+      "birthDate": "2023-11-09",
+      "department": "finance"
+    },
+    {
+      "id": "bfd1d39c-24de-4966-a03c-09b020f1327f",
+      "avatarUrl": "/images/avatar2.jpg",
+      "firstName": "Kuka",
+      "lastName": "O",
+      "email": "kuka@email.com",
+      "birthDate": "2002-10-23",
+      "department": "finance"
     }
   ]
 }
