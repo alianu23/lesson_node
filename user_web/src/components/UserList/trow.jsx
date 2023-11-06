@@ -53,8 +53,15 @@ const TRow = ({ user }) => {
     setUserList(users);
   };
 
+  const deleteBtn = (id) => {
+    console.log("daragdlaa");
+    setUserList(userList.filter((user) => user.id !== id));
+    // console.log("usermedeelel", user);
+  };
+
   useEffect(() => {
     getAllUser();
+    deleteBtn();
   }, [refresh]);
 
   return (
@@ -91,7 +98,17 @@ const TRow = ({ user }) => {
           засах
         </button>
         <Form open={open} closeForm={closeForm} />
-        <button className="  btn btn-error ">устгах</button>
+        {userList.map((user) => (
+          <button
+            onClick={() => {
+              deleteBtn(user.id);
+              // console.log("ustgah");
+            }}
+            className="  btn btn-error "
+          >
+            устгах
+          </button>
+        ))}
       </td>
     </tr>
   );
