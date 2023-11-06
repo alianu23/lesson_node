@@ -12,7 +12,7 @@ const Form = ({
   const [isLoading, setIsloading] = useState(false);
 
   const [formData, setFormData] = useState({
-    avatarUrl: "/images/avatar2.jpg",
+    avatarUrl: "",
     firstName: "",
     lastName: "",
     email: "",
@@ -159,9 +159,7 @@ const Form = ({
             <div className="avatar">
               <div className="w-24 rounded-full">
                 <img
-                  src={
-                    selectedUser ? selectedUser.avatarUrl : formData.avatarUrl
-                  }
+                  src={selectedUser ? selectedUser.avatarUrl : imgData}
                   alt="pic"
                 />
               </div>

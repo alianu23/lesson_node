@@ -79,14 +79,16 @@ export default function Home() {
           Шинэ хэрэглэгч нэмэх
         </button>
       </div>
-      <Form
-        open={open}
-        closeForm={closeForm}
-        selectedUser={selectedUser}
-        setSelectedUser={setSelectedUser}
-        refresh={refresh}
-        setRefresh={setRefresh}
-      />
+      {open && (
+        <Form
+          open={open}
+          closeForm={closeForm}
+          selectedUser={selectedUser}
+          setSelectedUser={setSelectedUser}
+          refresh={refresh}
+          setRefresh={setRefresh}
+        />
+      )}
       <UserList
         users={userList}
         handleUpdater={handleUpdater}
