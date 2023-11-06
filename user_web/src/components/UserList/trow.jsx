@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import Form from "../Form";
 
-const TRow = ({ user }) => {
+const TRow = ({ user, handleUpdater, handleDelete }) => {
   const getDepartment = (department) => {
     switch (department) {
       case "human resource": {
@@ -36,34 +36,6 @@ const TRow = ({ user }) => {
     }
   };
 
-  const [open, setOpen] = useState(false);
-  const [refresh, setRefresh] = useState(false);
-  const [userList, setUserList] = useState([]);
-
-  const closeForm = () => {
-    console.log("Formee");
-    setOpen(false);
-    setRefresh(!refresh);
-  };
-
-  const getAllUser = async () => {
-    const { users } = await fetch("http://localhost:8008/api/users").then(
-      (res) => res.json()
-    );
-    setUserList(users);
-  };
-
-  const deleteBtn = (id) => {
-    console.log("daragdlaa");
-    setUserList(userList.filter((user) => user.id !== id));
-    // console.log("usermedeelel", user);
-  };
-
-  useEffect(() => {
-    getAllUser();
-    deleteBtn();
-  }, [refresh]);
-
   return (
     <tr className="hover:bg-slate-100">
       <td>
@@ -90,25 +62,14 @@ const TRow = ({ user }) => {
       <td>{getDepartment(user.department)}</td>
       <td>
         <button
-          onClick={() => {
-            setOpen(true);
-          }}
           className=" btn btn-warning  mx-2"
+          onClick={() => handleUpdater(user.id)}
         >
           засах
         </button>
-        <Form open={open} closeForm={closeForm} />
-        {userList.map((user) => (
-          <button
-            onClick={() => {
-              deleteBtn(user.id);
-              // console.log("ustgah");
-            }}
-            className="  btn btn-error "
-          >
-            устгах
-          </button>
-        ))}
+        <button className="btn btn-error" onClick={() => handleDelete(user.id)}>
+          устгах
+        </button>
       </td>
     </tr>
   );
