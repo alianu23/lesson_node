@@ -4,7 +4,6 @@ import withReactContent from "sweetalert2-react-content";
 
 import UserList from "@/components/UserList";
 import Form from "@/components/Form";
-import Toast from "@/components/Toast";
 
 const MySwal = withReactContent(Swal);
 
@@ -25,8 +24,6 @@ export default function Home() {
     const { users } = await fetch("http://localhost:8008/api/users").then(
       (res) => res.json()
     );
-    console.log("Хэрэглэгчдийн мэдээллийг татлаа.", users);
-
     setUserList(users);
   };
 
